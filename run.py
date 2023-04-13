@@ -20,7 +20,7 @@ tio = TenableIO(TENABLE_ACCESS_KEY,TENABLE_SECRET_KEY)
 def get_report():
     print("Generating the report...")
     report = []
-    resp = tio.cs.images.list(return_json=True)
+    resp = tio.cs.images.list(return_json=True, limit=100000)
     for item in tqdm(resp['items']):
         image = item['name']
         repo = item['repo_name']
